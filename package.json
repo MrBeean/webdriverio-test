@@ -4,7 +4,8 @@
   "description": "Test webdriveruniversity.com with wdio, mocha, chai",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/wdio wdio.conf.js"
+    "test": "./node_modules/.bin/wdio wdio.conf.js",
+    "start": "./test/fixtures/contact.us.data.js"
   },
   "keywords": [],
   "author": "Andrei Syroezhkin",
@@ -23,6 +24,7 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "chromedriver": "^85.0.1",
+    "faker": "^5.1.0",
     "wdio-chromedriver-service": "^6.0.4"
   }
 }

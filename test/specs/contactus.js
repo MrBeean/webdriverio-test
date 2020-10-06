@@ -1,4 +1,5 @@
 const ContactUs = require("../pageobjects/contactus.page");
+const ContactUsData = require("../fixtures/contactus.data");
 
 describe("Contact Us page", () => {
   beforeEach(function () {
@@ -6,14 +7,7 @@ describe("Contact Us page", () => {
   });
 
   it("fill form & valid submit", () => {
-    let data = {
-      firstName: "James",
-      lastName: "Bond",
-      emailAddress: "james.bond@mail.ru",
-      comment: "Hi! My name is Bond. James Bond",
-    };
-
-    ContactUs.fillForm(data);
+    ContactUs.fillForm(new ContactUsData());
 
     ContactUs.successfulContactHeader.waitForDisplayed(3000);
     expect(ContactUs.successfulContactHeader.getText()).to.contain(
@@ -22,13 +16,10 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without firstName", () => {
-    let data = {
-      lastName: "Bond",
-      emailAddress: "james.bond@mail.ru",
-      comment: "Hi! My name is Bond. James Bond",
-    };
+    let userData = new ContactUsData()
+    userData.withoutFirstName()
 
-    ContactUs.fillForm(data);
+    ContactUs.fillForm(userData);
 
     ContactUs.unsuccessfulContactHeader.waitForDisplayed(3000);
     expect(ContactUs.unsuccessfulContactHeader.getText()).to.contain(
@@ -37,13 +28,10 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without lastName", () => {
-    let data = {
-      firstName: "James",
-      emailAddress: "james.bond@mail.ru",
-      comment: "Hi! My name is Bond. James Bond",
-    };
+    let userData = new ContactUsData()
+    userData.withoutLastName()
 
-    ContactUs.fillForm(data);
+    ContactUs.fillForm(userData);
 
     ContactUs.unsuccessfulContactHeader.waitForDisplayed(3000);
     expect(ContactUs.unsuccessfulContactHeader.getText()).to.contain(
@@ -52,13 +40,10 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without emailAddress", () => {
-    let data = {
-      firstName: "James",
-      lastName: "Bond",
-      comment: "Hi! My name is Bond. James Bond",
-    };
+    let userData = new ContactUsData()
+    userData.withoutEmailAddress()
 
-    ContactUs.fillForm(data);
+    ContactUs.fillForm(userData);
 
     ContactUs.unsuccessfulContactHeader.waitForDisplayed(3000);
     expect(ContactUs.unsuccessfulContactHeader.getText()).to.contain(
@@ -67,13 +52,10 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without comment", () => {
-    let data = {
-      firstName: "James",
-      lastName: "Bond",
-      emailAddress: "james.bond@mail.ru",
-    };
+    let userData = new ContactUsData()
+    userData.withoutComment()
 
-    ContactUs.fillForm(data);
+    ContactUs.fillForm(userData);
 
     ContactUs.unsuccessfulContactHeader.waitForDisplayed(3000);
     expect(ContactUs.unsuccessfulContactHeader.getText()).to.contain(

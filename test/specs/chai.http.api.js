@@ -14,7 +14,7 @@ describe("API checks", async () => {
       .set("accept", "application/json")
       .then(function (res) {
         expect(res).to.have.status(200);
-        expect(res.body.origin).to.equal("2.94.254.176");
+        expect(res.body.origin).to.equal("128.73.220.33");
       })
       .catch(function (err) {
         throw err;
