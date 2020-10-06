@@ -16,8 +16,8 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without firstName", () => {
-    let userData = new ContactUsData()
-    userData.withoutFirstName()
+    let userData = new ContactUsData();
+    userData.withoutFirstName();
 
     ContactUs.fillForm(userData);
 
@@ -28,8 +28,8 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without lastName", () => {
-    let userData = new ContactUsData()
-    userData.withoutLastName()
+    let userData = new ContactUsData();
+    userData.withoutLastName();
 
     ContactUs.fillForm(userData);
 
@@ -40,8 +40,8 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without emailAddress", () => {
-    let userData = new ContactUsData()
-    userData.withoutEmailAddress()
+    let userData = new ContactUsData();
+    userData.withoutEmailAddress();
 
     ContactUs.fillForm(userData);
 
@@ -52,8 +52,8 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without comment", () => {
-    let userData = new ContactUsData()
-    userData.withoutComment()
+    let userData = new ContactUsData();
+    userData.withoutComment();
 
     ContactUs.fillForm(userData);
 

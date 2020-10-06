@@ -1,4 +1,4 @@
-var faker = require('faker');
+var faker = require("faker");
 
 module.exports = class ContactUsData {
   constructor() {
@@ -9,15 +9,15 @@ module.exports = class ContactUsData {
   }
 
   withoutFirstName() {
-    this.firstName = null
+    this.firstName = null;
   }
   withoutLastName() {
-    this.lastName = null
+    this.lastName = null;
   }
   withoutEmailAddress() {
-    this.emailAddress = null
+    this.emailAddress = null;
   }
   withoutComment() {
-    this.comment = null
+    this.comment = null;
   }
-}
+};
