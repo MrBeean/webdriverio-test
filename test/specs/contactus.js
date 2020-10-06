@@ -2,12 +2,15 @@ const ContactUs = require("../pageobjects/contactus.page");
 const ContactUsData = require("../fixtures/contactus.data");
 
 describe("Contact Us page", () => {
-  beforeEach(function () {
+  let userData
+
+  beforeEach(() => {
     ContactUs.open();
+    userData = new ContactUsData();
   });
 
   it("fill form & valid submit", () => {
-    ContactUs.fillForm(new ContactUsData());
+    ContactUs.fillForm(userData);
 
     ContactUs.successfulContactHeader.waitForDisplayed(3000);
     expect(ContactUs.successfulContactHeader.getText()).to.contain(
@@ -16,9 +19,7 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without firstName", () => {
-    let userData = new ContactUsData();
     userData.withoutFirstName();
-
     ContactUs.fillForm(userData);
 
     ContactUs.unsuccessfulContactHeader.waitForDisplayed(3000);
@@ -28,9 +29,7 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without lastName", () => {
-    let userData = new ContactUsData();
     userData.withoutLastName();
-
     ContactUs.fillForm(userData);
 
     ContactUs.unsuccessfulContactHeader.waitForDisplayed(3000);
@@ -40,9 +39,7 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without emailAddress", () => {
-    let userData = new ContactUsData();
     userData.withoutEmailAddress();
-
     ContactUs.fillForm(userData);
 
     ContactUs.unsuccessfulContactHeader.waitForDisplayed(3000);
@@ -52,9 +49,7 @@ describe("Contact Us page", () => {
   });
 
   it("fill form without comment", () => {
-    let userData = new ContactUsData();
     userData.withoutComment();
-
     ContactUs.fillForm(userData);
 
     ContactUs.unsuccessfulContactHeader.waitForDisplayed(3000);
